@@ -17,7 +17,18 @@ client.on('ready', () => {
     new wokcommands({
         client,
         commandsDir: path.join(__dirname, 'cmd'),
-        testGuilds: ['1084994979316908032']
+        events: {
+            dir: path.join(__dirname, 'events')
+        },
+        testGuilds: ['1084994979316908032'],
+        disabledDefaultCommands: [
+            DefaultCommands.ChannelCommand,
+            DefaultCommands.CustomCommand,
+            DefaultCommands.Prefix,
+            DefaultCommands.RequiredPermissions,
+            DefaultCommands.RequiredRoles,
+            DefaultCommands.ToggleCommand
+          ],
     })
 })
 
