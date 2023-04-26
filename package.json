@@ -1,0 +1,25 @@
+{
+  "name": "tracksim-db",
+  "version": "1.0.0",
+  "description": "The Discord bot for the TrackSim guild.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FuzzyFuzzball/TrackSim-DB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FuzzyFuzzball/TrackSim-DB/issues"
+  },
+  "homepage": "https://github.com/FuzzyFuzzball/TrackSim-DB#readme",
+  "dependencies": {
+    "discord.js": "^14.9.0",
+    "nodemon": "^2.0.22",
+    "wokcommands": "^2.1.3"
+  }
+}
