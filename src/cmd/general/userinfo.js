@@ -3,14 +3,14 @@ const { CommandType } = require('wokcommands')
 const { color } = require('../../cfg/embed/embed.json')
 
 module.exports = {
-    description: 'Tutorial on how to get last.log file.',
+    description: 'Gets a users information.',
     type: CommandType.SLASH,
     testOnly: true,
     guildOnly: true,
     options: [
         {
             name: "user",
-            description: "The user who needs help.",
+            description: "The user for the command.",
             type: ApplicationCommandOptionType.User,
             required: true,
         }
@@ -20,14 +20,6 @@ module.exports = {
         const userOption = interaction.options.getUser('user');
         
 
-        const embedmsg = new EmbedBuilder()
-        .setTitle('Q: How to get last.log file?')
-        .setColor(color)
-        .setDescription(`A: To get your "last.log" file, go to %programdata%, this can be done via run (Windows key + R), then select TrackSim.\n\nThe file that you are looking for should be sitting right there.`)
-
-        interaction.reply({
-            content: `${userOption}`,
-            embeds: [embedmsg]
-        })
+       
     }
 }

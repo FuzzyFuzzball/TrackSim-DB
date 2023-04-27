@@ -3,7 +3,7 @@ const { CommandType } = require('wokcommands')
 const { color } = require('../../cfg/embed/embed.json')
 
 module.exports = {
-    description: 'Tutorial on how to get last.log file.',
+    description: 'Tutorial on how to get vcredist.',
     type: CommandType.SLASH,
     testOnly: true,
     guildOnly: true,
@@ -19,11 +19,10 @@ module.exports = {
     callback: ({ interaction }) => {
         const userOption = interaction.options.getUser('user');
         
-
         const embedmsg = new EmbedBuilder()
-        .setTitle('Q: How to get last.log file?')
+        .setTitle('Q: How to get vcredist?')
         .setColor(color)
-        .setDescription(`A: To get your "last.log" file, go to %programdata%, this can be done via run (Windows key + R), then select TrackSim.\n\nThe file that you are looking for should be sitting right there.`)
+        .setDescription(`A: Head over to the microsoft link down below. On there are the download links for vcredist.\n\n[Link](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)`)
 
         interaction.reply({
             content: `${userOption}`,
