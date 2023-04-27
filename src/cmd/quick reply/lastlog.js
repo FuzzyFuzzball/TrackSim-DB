@@ -1,28 +1,32 @@
-const { ApplicationCommandOptionType, EmbedBuilder } = require('disord.js');
+const { ApplicationCommandOptionType, EmbedBuilder, CommandInteractionOptionResolver } = require('discord.js');
+const { CommandType } = require('wokcommands')
+const { color } = require('../../cfg/embed/embed.json')
 
 module.exports = {
     description: 'Tutorial on how to get last.log file.',
-    type: SLASH,
+    type: CommandType.SLASH,
     testOnly: true,
     options: [
         {
             name: "user",
             description: "The user who needs help.",
-            type: ApplicationCommandOptionType.user,
+            type: ApplicationCommandOptionType.User,
             required: true,
         }
     ],
 
-    callback: () => {
-        const user = interaction.options.get('user');
+    callback: ({ interaction }) => {
+        const userOption = interaction.options.getUser('user');
+        
 
-        const embed = new EmbedBuilder()
+        const embedmsg = new EmbedBuilder()
         .setTitle('How to get last.log file?')
-        .setColor("4c56c4")
+        .setColor(color)
         .setDescription(`To get your "last.log" file, go to %programdata%, this can be done via run (Windows key + R), then select TrackSim.\n\nThe file that you are looking for should be sitting right there.`)
 
-        return {
-            content: `${user}`, embed,
-        }
+        interaction.reply({
+            content: `${userOption}`,
+            embeds: [embedmsg]
+        })
     }
 }

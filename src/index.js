@@ -20,15 +20,7 @@ client.on('ready', () => {
         events: {
             dir: path.join(__dirname, 'events')
         },
-        testGuilds: ['1084994979316908032'],
-        disabledDefaultCommands: [
-            DefaultCommands.ChannelCommand,
-            DefaultCommands.CustomCommand,
-            DefaultCommands.Prefix,
-            DefaultCommands.RequiredPermissions,
-            DefaultCommands.RequiredRoles,
-            DefaultCommands.ToggleCommand
-          ],
+        testServers: ['1084994979316908032'],
     })
 })
 
