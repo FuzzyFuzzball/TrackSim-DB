@@ -6,6 +6,7 @@ module.exports = {
     description: 'Tutorial on how to get last.log file.',
     type: CommandType.SLASH,
     testOnly: true,
+    guildOnly: true,
     options: [
         {
             name: "user",
