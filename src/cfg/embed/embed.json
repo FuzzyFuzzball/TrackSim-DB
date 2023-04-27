@@ -1,4 +1,6 @@
 {
     "color": "4c56c4",
-    "errcolor": "FF0000"
+    "errcolor": "FF0000",
+    "footertext": "TrackSim",
+    "footerlogo": "https://cdn.discordapp.com/attachments/1101073418436235335/1101073647633965156/TrackSim-gradient-logo-square-full-color-rgb-900px.png"
 }

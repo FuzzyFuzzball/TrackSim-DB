@@ -1,15 +1,11 @@
 const { EmbedBuilder } = require('discord.js');
-const { CommandType, CooldownTypes } = require('wokcommands');
-const { color } = require('../../cfg/embed/embed.json')
+const { CommandType } = require('wokcommands');
+const { color, footertext, footerlogo } = require('../../cfg/embed/embed.json')
 
 module.exports = {
-    description: 'Pings the bots latancy.',
+description: 'Pings the bots latancy.',
     type: CommandType.SLASH,
     testOnly: true,
-    cooldowns: {
-        type: CooldownTypes.perUser,
-        duration: "30 s",
-    },
     deferReply: "ephemeral",
 
     callback: async ({ interaction, client }) => {
@@ -18,6 +14,7 @@ module.exports = {
         .setTitle(`Pong!`)
         .setDescription(`The bot ping is ${client.ws.ping}ms.`)
         .setColor(color)
+        .setFooter({ text: footertext, iconURL: footerlogo });
         
         setTimeout(async () => {
             await interaction.editReply({

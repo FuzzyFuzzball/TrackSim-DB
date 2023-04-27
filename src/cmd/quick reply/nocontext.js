@@ -3,7 +3,7 @@ const { CommandType } = require('wokcommands')
 const { color, footertext, footerlogo } = require('../../cfg/embed/embed.json')
 
 module.exports = {
-    description: 'Tutorial on how to get vcredist.',
+    description: 'Tell user to give context on their support requests.',
     type: CommandType.SLASH,
     testOnly: true,
     guildOnly: true,
@@ -19,10 +19,11 @@ module.exports = {
     callback: ({ interaction }) => {
         const userOption = interaction.options.getUser('user');
         
+
         const embedmsg = new EmbedBuilder()
-        .setTitle('Q: How to get vcredist?')
+        .setTitle('Q: Hi, I need help.')
         .setColor(color)
-        .setDescription(`A: Head over to the microsoft link down below. On there are the download links for vcredist.\n\n[Link](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)`)
+        .setDescription(`A: Thank you so much for contacting TrackSim support. We really appreciate you coming to us for support. Unfortunately, our support staff can't help people that give absolutely no context for what they need help with. Please provide what you need help with below this message and we would be happy to help!\n\n[NoHello](https://nohello.net/en/)`)
         .setFooter({ text: footertext, iconURL: footerlogo });
 
         interaction.reply({

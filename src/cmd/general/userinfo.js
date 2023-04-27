@@ -1,6 +1,6 @@
 const { ApplicationCommandOptionType, EmbedBuilder, CommandInteractionOptionResolver } = require('discord.js');
 const { CommandType } = require('wokcommands')
-const { color } = require('../../cfg/embed/embed.json')
+const { color, footertext, footerlogo } = require('../../cfg/embed/embed.json')
 
 module.exports = {
     description: 'Gets a users information.',

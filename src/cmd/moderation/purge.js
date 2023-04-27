@@ -1,6 +1,6 @@
 const { CommandType } = require('wokcommands');
 const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
-const { color, errcolor } = require('../../cfg/embed/embed.json')
+const { color, footertext, footerlogo, errcolor } = require('../../cfg/embed/embed.json')
 
 module.exports = {
     description: 'Delete a certain amount of messages.',
@@ -24,6 +24,7 @@ module.exports = {
             const errorembed = new EmbedBuilder()
             .setColor(errcolor)
             .setTitle(`You can't delete more than 100 messages at a time.`)
+            .setFooter({ text: footertext, iconURL: footerlogo });
 
             interaction.reply({
                 embeds: [errorembed],
@@ -37,6 +38,7 @@ module.exports = {
             const errorembed = new EmbedBuilder()
             .setColor(errcolor)
             .setTitle(`You can't delete less than 2 messages at a time.`)
+            .setFooter({ text: footertext, iconURL: footerlogo });
 
             interaction.reply({
                 embeds: [errorembed],
@@ -51,6 +53,7 @@ module.exports = {
         const embedmsg = new EmbedBuilder()
         .setColor(color)
         .setTitle(`Deleted ${size} messages.`)
+        .setFooter({ text: footertext, iconURL: footerlogo });
 
         interaction.reply({
             embeds: [embedmsg],
