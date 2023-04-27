@@ -16,10 +16,27 @@ module.exports = {
         }
     ],
 
-    callback: ({ interaction }) => {
+    callback: async ({ interaction }) => {
         const userOption = interaction.options.getUser('user');
+        const member = await interaction.guild.members.fetch(userOption.id);
         
 
-       
+        const reply = new EmbedBuilder()
+        .setColor(color)
+        .setTitle(`User ${userOption.username}'s info.`)
+        .addFields(
+            { name: 'Username', value: `${userOption.username}`, inline: true },
+            { name: 'Discriminator', value: `${userOption.discriminator}`, inline: true },
+            { name: 'User ID', value: `\`${userOption.id}\``, inline: true },
+            { name: 'Is Bot?', value: `${member.user.bot}`, inline: true},
+            { name: 'Joined Server', value: `<t:${parseInt(member.joinedAt / 1000)}:R>`, inline: true },
+            { name: 'Joined Discord', value: `<t:${parseInt(userOption.createdAt / 1000)}:R>`, inline: true },
+            { name: 'Role List', value: `${member.roles.cache.map(r => r).join(' ')}`, inline: false }
+        )
+
+        interaction.reply({
+            embeds: [reply],
+            ephemeral: true,
+        })
     }
 }
