@@ -9,8 +9,8 @@ module.exports = (member, message) => {
     const msg = new EmbedBuilder()
     .setColor(color)
     .setFooter({ text: footertext, iconURL: footerlogo })
-    .setTitle(`Welcome!`)
-    .setDescription(`Welcome <@${member.id}> to the TrackSim discord, enjoy your stay.`)
+    .setTitle(`Member Left`)
+    .setDescription(`It's sad to see you leave <@${member.id}>! We hope to see you again. `)
 
     welcomeChannel.send({ embeds: [msg] })
 }

@@ -10,6 +10,7 @@ const client = new Client({
     ws: { properties: { browser: 'Discord iOS' } },
 })
 const wokcommands = require('wokcommands')
+const { DefaultCommands } = require('wokcommands')
 const path = require('path')
 const { token } = require('./cfg/token/token.json')
 
@@ -27,6 +28,14 @@ client.on('ready', () => {
             dir: path.join(__dirname, 'events')
         },
         testServers: ['1084994979316908032'],
+        disabledDefaultCommands: [
+            DefaultCommands.ChannelCommand,
+            DefaultCommands.CustomCommand,
+            DefaultCommands.Prefix,
+            DefaultCommands.RequiredPermissions,
+            DefaultCommands.RequiredRoles,
+            DefaultCommands.ToggleCommand
+          ],
     })
 })
 
