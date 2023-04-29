@@ -1,6 +1,7 @@
 const { CommandType } = require('wokcommands');
 const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 const { color, footertext, footerlogo, errcolor } = require('../../cfg/embed/embed.json')
+const { logchannel } = require('../../cfg/channels/channels.json')
 
 module.exports = {
     description: 'Delete a certain amount of messages.',
@@ -17,8 +18,9 @@ module.exports = {
         },
     ],
 
-    callback: async ({ interaction, args, channel }) => {
+    callback: async ({ interaction, args, channel, member, guild }) => {
         const amount = args.length ? parseInt(args.shift()) : 10
+        const logchan = interaction.member.guild.channels.cache.get(logchannel)
 
         if (amount > 100) {
             const errorembed = new EmbedBuilder()
@@ -58,6 +60,22 @@ module.exports = {
         interaction.reply({
             embeds: [embedmsg],
             ephemeral: true
+        })
+
+        const log = new EmbedBuilder()
+        .setColor(color)
+        .setTitle(`Message Bulk Delete`)
+        .addFields(
+            { name: 'Moderator', value: `<@${interaction.user.id}>`, inline: true },
+            { name: 'Amount', value: `${size}`, inline: true, },
+            { name: 'Channel', value: `${interaction.channel}`, inline: true }
+        )
+        .setFooter({ text: footertext, iconURL: footerlogo })
+        
+
+
+        logchan.send({
+            embeds: [log]
         })
     }
 }

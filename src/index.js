@@ -35,7 +35,8 @@ client.on('ready', () => {
             DefaultCommands.RequiredPermissions,
             DefaultCommands.RequiredRoles,
             DefaultCommands.ToggleCommand
-          ],
+        ],
+        botOwners: ['1084922446248951828'],
     })
 })
 
