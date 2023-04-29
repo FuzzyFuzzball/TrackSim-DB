@@ -16,6 +16,7 @@ const { token } = require('./cfg/token/token.json')
 
 client.on('ready', () => {
     console.log(`${client.user.tag} is online.`)
+    console.log(process.env)
     client.user.setActivity({
         name: "tracksim.app",
         type: ActivityType.Watching
@@ -39,4 +40,4 @@ client.on('ready', () => {
     })
 })
 
-client.login(token)
+client.login(process.env.TOKEN)
