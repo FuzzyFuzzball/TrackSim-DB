@@ -12,7 +12,7 @@ const {
 } = require('../../cfg/embed/embed.json')
 
 module.exports = {
-    description: 'FAQ: "My TrackSim is not working."',
+    description: 'Sends FAQ of what are the prices of TrackSim.',
     type: CommandType.SLASH,
     testOnly: true,
     guildOnly: true,
@@ -28,14 +28,16 @@ module.exports = {
     }) => {
         const userOption = interaction.options.getUser('user');
 
+
         const embedmsg = new EmbedBuilder()
-            .setTitle(`Q: My tracker isn't working!`)
+            .setTitle('Q: What are the prices of TrackSim?')
             .setColor(color)
-            .setDescription(`A: If your tracker isn't working, please make sure that you have followed the correct installation guide.\nIf you have followed the guide correctly then feel free to open a support ticket to get one of the support team members to help you.\n\n [Installation Guide](https://docs.tracksim.app/docs/getting-started/installation)`)
+            .setDescription(`A: To see the prices of the TrackSim service, visit the link below to be able to see what the prices are for TrackSim.`)
             .setFooter({
                 text: footertext,
                 iconURL: footerlogo
             });
+
         interaction.reply({
             content: `${userOption}`,
             embeds: [embedmsg]

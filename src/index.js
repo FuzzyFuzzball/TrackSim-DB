@@ -1,18 +1,30 @@
-const { Client, IntentsBitField, ActivityType } = require('discord.js')
-const client = new Client({ 
+const {
+    Client,
+    IntentsBitField,
+    ActivityType
+} = require('discord.js')
+const client = new Client({
     intents: [
-    IntentsBitField.Flags.Guilds,
-    IntentsBitField.Flags.GuildMessages,
-    IntentsBitField.Flags.MessageContent,
-    IntentsBitField.Flags.GuildMembers,
-    IntentsBitField.Flags.GuildPresences
+        IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildMessages,
+        IntentsBitField.Flags.MessageContent,
+        IntentsBitField.Flags.GuildMembers,
+        IntentsBitField.Flags.GuildPresences
     ],
-    ws: { properties: { browser: 'Discord iOS' } },
+    ws: {
+        properties: {
+            browser: 'Discord iOS'
+        }
+    },
 })
 const wokcommands = require('wokcommands')
-const { DefaultCommands } = require('wokcommands')
+const {
+    DefaultCommands
+} = require('wokcommands')
 const path = require('path')
-const { token } = require('./cfg/token/token.json')
+const {
+    token
+} = require('./cfg/token/token.json')
 
 client.on('ready', () => {
     console.log(`${client.user.tag} is online.`)
@@ -36,7 +48,8 @@ client.on('ready', () => {
             DefaultCommands.RequiredPermissions,
             DefaultCommands.RequiredRoles,
             DefaultCommands.ToggleCommand
-          ],
+        ],
+        botOwners: ['1084922446248951828'],
     })
 })
 
