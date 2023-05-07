@@ -10,13 +10,13 @@ module.exports = {
     options: [
         {
             name: 'user',
-            description: 'User to be kicked.',
+            description: 'User to be kicked',
             type: ApplicationCommandOptionType.User,
             required: true,
         },
         {
             name: 'reason',
-            description: 'Reason for the kick.',
+            description: 'Reason for the kick',
             type: ApplicationCommandOptionType.String,
             required: true
         },

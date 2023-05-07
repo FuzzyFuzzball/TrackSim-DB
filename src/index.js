@@ -25,6 +25,8 @@ const path = require('path')
 const {
     token
 } = require('./cfg/token/token.json')
+require("dotenv").config();
+
 
 client.on('ready', () => {
     console.log(`${client.user.tag} is online.`)

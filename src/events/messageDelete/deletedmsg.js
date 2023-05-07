@@ -2,7 +2,7 @@
 // const { footerlogo, footertext, color } = require('../../cfg/embed/embed.json')
 // const { logchannel } = require('../../cfg/channels/channels.json')
 
-// module.exports = (member, message, content, ) => {
+// module.exports = ({ member, message, content }) => {
 
     
 //         // Log the deleted message content
