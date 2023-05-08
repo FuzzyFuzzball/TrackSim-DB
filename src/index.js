@@ -30,7 +30,6 @@ require("dotenv").config();
 
 client.on('ready', () => {
     console.log(`${client.user.tag} is online.`)
-    console.log(process.env)
     client.user.setActivity({
         name: "tracksim.app",
         type: ActivityType.Watching

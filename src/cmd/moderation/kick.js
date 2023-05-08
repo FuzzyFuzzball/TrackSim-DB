@@ -7,6 +7,7 @@ module.exports = {
     permissions: ['KICK_MEMBERS'],
     testOnly: true,
     guildOnly: true,
+    type: commandType.SLASH,
     options: [
         {
             name: 'user',
@@ -18,7 +19,7 @@ module.exports = {
             name: 'reason',
             description: 'Reason for the kick',
             type: ApplicationCommandOptionType.String,
-            required: true
+            required: false
         },
     ],
 
@@ -26,6 +27,10 @@ module.exports = {
         const userOption = interaction.options.getUser('user');
         const member = await interaction.guild.members.fetch(userOption.id);
         const reasonOption = interaction.options.getString('reason')
+
+        if (!reasonOption) {
+            const reasonOption = 'No reason provided.'
+        }
 
         if (!member) {
             const errormsg = new EmbedBuilder()
