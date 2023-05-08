@@ -1,7 +1,7 @@
 const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js')
 const { CommandType } = require('wokcommands')
 const { color, errcolor, footerlogo, footertext } = require('../../cfg/embed/embed.json')
-const { logchannel,  } = require('../../cfg/channels/channels.json')
+const { logchannel } = require('../../cfg/channels/channels.json')
 
 module.exports = {
     description: `Bans member of choice for a specific reason`,

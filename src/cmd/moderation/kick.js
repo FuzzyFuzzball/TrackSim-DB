@@ -1,13 +1,14 @@
 const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js')
 const { color, errcolor, footerlogo, footertext } = require('../../cfg/embed/embed.json')
 const { logchannel } = require('../../cfg/channels/channels.json')
+const { CommandType } = require('wokcommands')
 
 module.exports = {
     description: 'Kicks member of choice for a specific reason',
     permissions: ['KICK_MEMBERS'],
     testOnly: true,
     guildOnly: true,
-    type: commandType.SLASH,
+    type: CommandType.SLASH,
     options: [
         {
             name: 'user',
@@ -27,6 +28,21 @@ module.exports = {
         const userOption = interaction.options.getUser('user');
         const member = await interaction.guild.members.fetch(userOption.id);
         const reasonOption = interaction.options.getString('reason')
+
+        if (!member.kickable) {
+            const errormsg = new EmbedBuilder()
+            .setColor(errcolor)
+            .setTitle(`Error`)
+            .setDescription(`User "${member}", is not able to be kicked, therefore the command hasn't kicked the member for reason "${reasonOption}"`)
+            .setFooter({ text: footertext, iconURL: footerlogo })
+
+            interaction.reply({
+                embeds: [errormsg],
+                ephemeral: true,
+            })
+
+            return
+        }
 
         if (!reasonOption) {
             const reasonOption = 'No reason provided.'

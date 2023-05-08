@@ -22,9 +22,6 @@ const {
     DefaultCommands
 } = require('wokcommands')
 const path = require('path')
-const {
-    token
-} = require('./cfg/token/token.json')
 require("dotenv").config();
 
 
