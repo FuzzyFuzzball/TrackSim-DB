@@ -29,6 +29,10 @@ module.exports = {
         const member = await interaction.guild.members.fetch(userOption.id);
         const reasonOption = interaction.options.getString('reason')
 
+        if (!reasonOption) {
+            const reasonOption = 'No reason provided'
+        }
+
         if (!member.kickable) {
             const errormsg = new EmbedBuilder()
             .setColor(errcolor)
@@ -71,7 +75,7 @@ module.exports = {
 
         member.send(usermsg)
 
-        member.kick()
+        member.kick({ reason: reasonOption })
 
     }
 }

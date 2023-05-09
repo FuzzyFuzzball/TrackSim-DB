@@ -29,6 +29,14 @@ module.exports = {
         const member = await interaction.guild.members.fetch(userOption.id)
         const reasonOption = interaction.options.getString('reason')
 
+        if (!member.bannable) {
+            const errormsg = new EmbedBuilder()
+            .setColor(errcolor)
+            .setTitle(`Error`)
+            .setDescription(`User "${member}", is not able to be banned from the guild, therefore the command hasn't banned the user for "${reasonOption}"`)
+            .setFooter({ text: footertext, iconURL: footerlogo })
+        }
+
         if (!reasonOption) {
             const reasonOption = 'No reason provided'
         }
