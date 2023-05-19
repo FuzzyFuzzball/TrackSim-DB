@@ -12,6 +12,12 @@ module.exports = {
         const reply = new EmbedBuilder()
         .setColor(color)
         .setTitle(`TrackSim Information`)
-        .setDescription(`TrackSim was founded in 2023, owned by Omnibyte Technologies. It was built because of the close down of Navio.`)
+        .setDescription(`TrackSim was founded in 2023, owned by Omnibyte Technologies. It was built because of the close down of Navio.\n\nTrackSim is being built by developers, for developers of all different types.`)
+        .setFooter({ text: footertext, iconURL: footerlogo })
+
+        interaction.reply({
+            embeds: [reply],
+            ephemeral: true,
+        })
     }
 }
